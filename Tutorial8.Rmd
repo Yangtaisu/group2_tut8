@@ -1,10 +1,10 @@
 ---
 title: "Corona Virus Report"
 author:
-- familyname: XXXX
-  othernames: XXX
+- familyname: ShiJingYi
+  othernames: JingJIng
   address: Monash Universtidy
-  email: XXX
+  email: jshi0067@student.monash.edu
   correspondingauthor: true
   qualifications:  XXX
 - familyname: XXXX
@@ -49,7 +49,7 @@ View(worldwidecases)
 
 
 
-\section*{Country XX1 and YY1"}
+\section*{Country Australia and Italy"}
 This is ShiJingYi.
 
 ```{r}
@@ -65,14 +65,8 @@ Italy_data <- worldwidecases %>%
 All_data <- Italy_data %>% 
   rbind(Australia_data) %>% 
   rename("Date" = "dateRep",
-         "Country" = "countriesAndTerritories")
+         "Country" = "countriesAndTerritories") 
 
-All_data %>% 
-  head(10) %>% 
-  kable(caption = "Summary of data on new cases and deaths in Italy and Australia.")
-```
-
-```{r}
 Mean_monthdata <- All_data %>% 
  group_by(Country) %>%
   group_by(month) %>% 
@@ -82,7 +76,15 @@ Mean_monthdata <- All_data %>%
                      "30/04/2020",
                      "31/03/2020",
                      "29/02/2020",
-                     "31/01/2020"))
+                     "31/01/2020")) %>% 
+  select(-Date)
+
+Mean_monthdata %>% 
+  head(10) %>% 
+  kable(caption = "Summary of average data on new cases and deaths in Italy and Australia.")
+```
+
+```{r}
 
 ggplot(Mean_monthdata,
              aes(x = month ))+
