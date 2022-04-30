@@ -47,8 +47,61 @@ library(bookdown)
 ```
 
 
+\section*{Country Australia and Italy"}
+This is ShiJingYi.
 
-\section*{Country XX1 and YY1"}
+```{r}
+Australia_data <- worldwidecases %>% 
+  filter( countriesAndTerritories == "Australia") %>% 
+  select(dateRep,cases,deaths,countriesAndTerritories,month)
+
+Italy_data <- worldwidecases %>% 
+  filter( countriesAndTerritories == "Italy")%>% 
+  select(dateRep,cases,deaths,countriesAndTerritories,month) %>% 
+  rbind(Australia_data)
+
+All_data <- Italy_data %>% 
+  rbind(Australia_data) %>% 
+  rename("Date" = "dateRep",
+         "Country" = "countriesAndTerritories") 
+
+Mean_monthdata <- All_data %>% 
+ group_by(Country) %>%
+  group_by(month) %>% 
+  mutate(Month_case= mean(cases),
+            Month_death = mean(deaths)) %>% 
+  filter(Date %in% c("10/05/2020",
+                     "30/04/2020",
+                     "31/03/2020",
+                     "29/02/2020",
+                     "31/01/2020")) %>% 
+  select(-Date)
+
+Mean_monthdata %>% 
+  head(10) %>% 
+  kable(caption = "Summary of average data on new cases and deaths in Italy and Australia.")
+```
+
+```{r}
+
+ggplot(Mean_monthdata,
+             aes(x = month ))+
+  geom_bar(aes(y = Month_case),stat="identity",
+           fill="#69b3a2")+
+  geom_line(aes(y=Month_death),
+            color="#E69F00",
+            size=1)+
+  geom_point(aes(y=Month_death),
+             color="#E69F00",
+             size=2)+
+  scale_y_continuous(name = "Cases",
+                     sec.axis = sec_axis(trans =~./100,
+                        name = "Death"))+
+  theme(axis.text.x = element_text(angle = 90))+
+   facet_grid(rows = vars(Country),scales = "free_y")
+```
+
+
 
 \section*{Country XX2 and YY2}
 ```{r}
