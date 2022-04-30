@@ -1,7 +1,7 @@
 ---
 title: "Corona Virus Report"
 author:
-- familyname: XXXX
+- familyname: Sun
   othernames: XXX
   address: Monash Universtidy
   email: XXX
