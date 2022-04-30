@@ -51,6 +51,28 @@ library(bookdown)
 \section*{Country XX1 and YY1"}
 
 \section*{Country XX2 and YY2}
+```{r}
+worldcase <- read.csv("Data/worldwidecases.csv")
+
+CHN_USA <- worldcase %>% 
+  filter(countryterritoryCode %in% 
+           c("CHN", "USA")) 
+CHN_USA %>% 
+  group_by(countriesAndTerritories) %>% 
+  summarise(total_death = sum(deaths), 
+            total_case = sum(cases),
+            death_rate = total_death/total_case*100) %>% 
+  kable(caption = "Death rate for China and USA")
+```
+
+```{r}
+  ggplot(CHN_USA) +
+  geom_line(mapping = 
+              aes(x = dateRep,
+                  y = cases,
+                  color = countryterritoryCode)) +
+  facet_wrap(~countryterritoryCode)
+```
 
 \section*{Country XX3 and YY3}
 
