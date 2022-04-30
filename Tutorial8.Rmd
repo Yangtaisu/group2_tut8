@@ -2,7 +2,7 @@
 title: "Corona Virus Report"
 author:
 - familyname: Sun
-  othernames: XXX
+  othernames: Miaomiao~
   address: Monash Universtidy
   email: XXX
   correspondingauthor: true
@@ -53,6 +53,49 @@ library(bookdown)
 \section*{Country XX2 and YY2}
 
 \section*{Country XX3 and YY3}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
