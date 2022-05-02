@@ -49,6 +49,9 @@ library(bookdown)
 
 \section*{Country Australia and Italy"}
 
+Modify the RMD
+
+
 ```{r}
 Australia_data <- worldwidecases %>% 
   filter( countriesAndTerritories == "Australia") %>% 
