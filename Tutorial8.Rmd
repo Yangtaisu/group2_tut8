@@ -173,6 +173,10 @@ Choose <- Assignment3_data %>%
 
 
 
-
+```{r}
+Assignment3_data <- read_csv("Data/Assignment3_data.csv")
+Choose <- Assignment3_data %>% 
+  filter(Country_Name %in% c("Australia","New Zealand"))
+```
 
 
