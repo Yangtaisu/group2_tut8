@@ -48,7 +48,7 @@ library(bookdown)
 
 
 \section*{Country Australia and Italy"}
-This is ShiJingYi.
+Modify the RMD
 
 ```{r}
 Australia_data <- worldwidecases %>% 
