@@ -7,9 +7,9 @@ author:
   email: XXX
   correspondingauthor: true
   qualifications:  XXX
-- familyname: XXXX
-  othernames: Reports
-  address: XXX
+- familyname: Shi
+  othernames: Jingyi
+  address: Monash
   qualifications: XXX
 - familyname: XXX
   othernames: XXX
@@ -48,7 +48,6 @@ library(bookdown)
 
 
 \section*{Country Australia and Italy"}
-This is ShiJingYi.
 
 ```{r}
 Australia_data <- worldwidecases %>% 
@@ -100,8 +99,6 @@ ggplot(Mean_monthdata,
   theme(axis.text.x = element_text(angle = 90))+
    facet_grid(rows = vars(Country),scales = "free_y")
 ```
-
-
 
 \section*{Country XX2 and YY2}
 ```{r}
